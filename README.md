@@ -25,6 +25,8 @@ $ npm install
 
 ## Running the app
 
+Run on: http://localhost:3000/
+
 ```bash
 # development
 $ npm run start
