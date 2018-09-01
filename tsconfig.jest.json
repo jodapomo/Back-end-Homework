@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true
+  }
+}
+
+// In package.json in jest
+
+// "globals": {
+//   "ts-jest": {
+//     "tsConfigFile": "./tsconfig.jest.json"
+//   }
+// },
