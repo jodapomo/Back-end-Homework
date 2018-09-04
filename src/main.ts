@@ -16,18 +16,18 @@ async function bootstrap() {
     .setVersion('1.0.0')
     .setHost(hostDomain.split('//')[1])
     .setSchemes(AppModule.isDev ? 'http' : 'https')
-    .setBasePath('/api')
+    .setBasePath('/api/v1')
     .addBearerAuth('Authorization', 'header')
     .build();
 
   const swaggerDoc = SwaggerModule.createDocument(app, swaggerOptions);
 
-  app.use('/api/docs/swagger.json', (req, res) => {
+  app.use('/api/v1/docs/swagger.json', (req, res) => {
     res.send(swaggerDoc);
   });
 
-  SwaggerModule.setup('/api/docs', app, null, {
-    swaggerUrl: `${hostDomain}/api/docs/swagger.json`,
+  SwaggerModule.setup('/api/v1/docs', app, null, {
+    swaggerUrl: `${hostDomain}/api/v1/docs/swagger.json`,
     explorer: true,
     swaggerOptions: {
       docExpansion: 'list',
@@ -41,7 +41,7 @@ async function bootstrap() {
     module.hot.dispose(() => app.close());
   }
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api/v1');
 
   await app.listen(AppModule.port);
   
