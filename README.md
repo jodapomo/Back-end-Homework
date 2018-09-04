@@ -8,10 +8,13 @@ DB name: homeworkdb
 ```
 mongodb://<dbuser>:<dbpassword>@ds133622.mlab.com:33622/homeworkdb
 ```
-## Authors
+## Master
 
-* **Juan David Fernandez Moreno**
-* **José Daniel Posada Montoya**
+https://praxis-homework.herokuapp.com/api
+
+## Continuous Integration and Delivery
+
+CircleCI: https://circleci.com/gh/jodapomo/Back-end-Homework
 
 ## Description
 
@@ -25,7 +28,7 @@ $ npm install
 
 ## Running the app
 
-Run on: http://localhost:3000/
+Run local on: http://localhost:3000/
 
 ```bash
 # development
@@ -50,4 +53,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## Authors
 
+* **Juan David Fernandez Moreno**
+* **José Daniel Posada Montoya**
