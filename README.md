@@ -16,6 +16,10 @@ https://praxis-homework.herokuapp.com/api
 
 CircleCI: https://circleci.com/gh/jodapomo/Back-end-Homework
 
+## Code documentation
+
+Swagger UI: http://localhost:3000/api/docs/
+
 ## Description
 
 description
