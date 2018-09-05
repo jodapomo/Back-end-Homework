@@ -15,18 +15,21 @@ export class UsersController {
         return res.status(HttpStatus.OK).json(users);
     }
 
+    @ApiOperation({ title: 'Get an user by id', description: "Return a user by passing the _id." })
     @Get('/:id')
     public async getUser(@Response() res, @Param() param){
         const user = await this.usersService.findById(param.id);
         return res.status(HttpStatus.OK).json(user);
     }
 
+    @ApiOperation({ title: 'Get an user by username', description: "Return a user by passing the username." })
     @Get('/username/:username')
     public async getUserByUsername(@Response() res, @Param() param){
         const user = await this.usersService.findByUsername(param.username);
         return res.status(HttpStatus.OK).json(user);
     }
 
+    @ApiOperation({ title: 'Create an user', description: "Create an user passing a object of type CreateUserDto. Return the object created" })
     @Post()
     @ApiResponse({ status: 201, description: 'The user has been successfully created.' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -36,17 +39,19 @@ export class UsersController {
         return res.status(HttpStatus.CREATED).json(user);
     }
 
+    @ApiOperation({ title: 'Update an user passing his _id.', description: "Update an user passing a body with changs. Look for mongoose update." })
     @Patch('/:id')
     public async updateUser(@Param() param, @Response() res, @Body() body) {
 
-        const todo = await this.usersService.update(param.id, body);
-        return res.status(HttpStatus.OK).json(todo);
+        const user = await this.usersService.update(param.id, body);
+        return res.status(HttpStatus.OK).json(user);
     }
 
+    @ApiOperation({ title: 'Delete an user passing his _id.', description: "Delete an user passing his id." })
     @Delete('/:id')
     public async deleteUser(@Param() param, @Response() res) {
 
-        const todo = await this.usersService.delete(param.id);
-        return res.status(HttpStatus.OK).json(todo);
+        const user = await this.usersService.delete(param.id);
+        return res.status(HttpStatus.OK).json(user);
     }
 }

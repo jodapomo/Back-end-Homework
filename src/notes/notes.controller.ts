@@ -8,25 +8,21 @@ import { CreateNoteDto } from './dto/create-note.dto';
 export class NotesController {
     constructor(private readonly notesService: NotesService){}
 
-    @ApiOperation({ title: 'Get all notes', description: "Return a jsons array with all the notes" })
+    @ApiOperation({ title: 'Get all notes', description: "Return a json array with all the notes" })
     @Get()
     public async getNotes(@Response() res) {
         const notes = await this.notesService.findAll();
         return res.status(HttpStatus.OK).json(notes);
     }
 
+    @ApiOperation({ title: 'Get a single note passing the _id.', description: "Return a single note by _id." })
     @Get('/:id')
     public async getNote(@Response() res, @Param() param){
         const note = await this.notesService.findById(param.id);
         return res.status(HttpStatus.OK).json(note);
     }
 
-    // @Get('/username/:username')
-    // public async getUserByUsername(@Response() res, @Param() param){
-    //     const user = await this.usersService.findByUsername(param.username);
-    //     return res.status(HttpStatus.OK).json(user);
-    // }
-
+    @ApiOperation({ title: 'Create a note.', description: "Create a note passing the text and the username of the user that own it." })
     @Post()
     @ApiResponse({ status: 201, description: 'The user has been successfully created.' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -37,6 +33,7 @@ export class NotesController {
         return res.status(HttpStatus.CREATED).json(note);
     }
 
+    @ApiOperation({ title: 'Update a single note passing the _id.', description: "In order de update a note you could pass as body an object like this { text: '<Updated text>'}." })
     @Patch('/:id')
     public async updateNote(@Param() param, @Response() res, @Body() body) {
 
@@ -44,6 +41,7 @@ export class NotesController {
         return res.status(HttpStatus.OK).json(todo);
     }
 
+    @ApiOperation({ title: 'Delete a note passing the _id.', description: "Delete a note passing the _id." })
     @Delete('/:id')
     public async deleteNote(@Param() param, @Response() res) {
 
