@@ -4,17 +4,23 @@ import { Model, Schema } from 'mongoose';
 import { User } from './interfaces/user.interface';
 import { CreateUserDto } from './dto/create-user.dto';
 import { debug } from 'console';
+import { Note } from 'notes/interfaces/note.interface';
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
+    constructor(
+        @InjectModel('User') private readonly userModel: Model<User>,
+        @InjectModel('Note') private readonly noteModel: Model<Note>
+    ) {}
 
     async findAll(): Promise<User[]> {
-        return await this.userModel.find().exec();
+
+
+        return await this.userModel.find().populate('notes').exec();
     }
 
     async findOne(options: object): Promise<User> {
-        return await this.userModel.findOne(options).exec();
+        return await this.userModel.findOne(options).populate('notes').exec();
     }
 
     async findById(ID: Schema.Types.ObjectId): Promise<User> {
@@ -29,7 +35,7 @@ export class UsersService {
         return await newUser.save();
     }
 
-    async update(ID: Schema.Types.ObjectId, newValue: User): Promise<User> {
+    async update(ID: Schema.Types.ObjectId, newValue: any): Promise<User> {
         const user = await this.userModel.findById(ID).exec();
 
         if (!user._id) {
