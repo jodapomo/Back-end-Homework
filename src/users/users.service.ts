@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, Schema } from 'mongoose';
+import { Model} from 'mongoose';
 import { User } from './interfaces/user.interface';
 import { CreateUserDto } from './dto/create-user.dto';
 import { debug } from 'console';
@@ -23,19 +23,19 @@ export class UsersService {
         return await this.userModel.findOne(options).populate('notes').exec();
     }
 
-    async findById(ID: Schema.Types.ObjectId): Promise<User> {
-        return await this.userModel.findById(ID).exec();
+    async findById(ID: String): Promise<User> {
+        return await this.userModel.findById(ID).populate('notes').exec();
     }
 
     async findByUsername(username: string): Promise<User> {
-        return await this.userModel.findOne({'username': username});
+        return await this.userModel.findOne({'username': username}).populate('notes');
     }
     async create( createUserDto: CreateUserDto): Promise<User> {
         const newUser = new this.userModel(createUserDto);
         return await newUser.save();
     }
 
-    async update(ID: Schema.Types.ObjectId, newValue: any): Promise<User> {
+    async update(ID: String, newValue: any): Promise<User> {
         const user = await this.userModel.findById(ID).exec();
 
         if (!user._id) {
@@ -43,9 +43,9 @@ export class UsersService {
         }
 
         await this.userModel.findByIdAndUpdate(ID, newValue).exec();
-        return await this.userModel.findById(ID).exec();
+        return await this.userModel.findById(ID).populate('notes').exec();
     }
-    async delete(ID: Schema.Types.ObjectId): Promise<string> {
+    async delete(ID: String): Promise<string> {
         try {
             await this.userModel.findByIdAndRemove(ID).exec();
             return 'The user has been deleted';

@@ -36,6 +36,19 @@ async function bootstrap() {
     },
   });
 
+  //   const options = new DocumentBuilder()
+  //   .setTitle('Cats example')
+  //   .setDescription('The cats API description')
+  //   .setVersion('1.0')
+  //   .addTag('cats')
+  //   .setSchemes(AppModule.isDev ? 'http' : 'https')
+  //   .setBasePath('/api/v1')
+  //   .addBearerAuth()
+  //   .build();
+  // const document = SwaggerModule.createDocument(app, options);
+  // SwaggerModule.setup('/api/v1/docs', app, document);
+
+
   if (module.hot) {
     module.hot.accept();
     module.hot.dispose(() => app.close());

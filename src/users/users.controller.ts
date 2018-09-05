@@ -1,6 +1,6 @@
 import { Controller, Get, Body, Response, Post, Patch, Delete, Param, HttpStatus } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { ApiResponse, ApiUseTags, ApiOperation } from '@nestjs/swagger';
+import { ApiResponse, ApiUseTags, ApiOperation, ApiImplicitBody } from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
 
 @ApiUseTags('users')
@@ -17,15 +17,15 @@ export class UsersController {
 
     @ApiOperation({ title: 'Get an user by id', description: "Return a user by passing the _id." })
     @Get('/:id')
-    public async getUser(@Response() res, @Param() param){
-        const user = await this.usersService.findById(param.id);
+    public async getUser(@Response() res, @Param('id') id: String){
+        const user = await this.usersService.findById(id);
         return res.status(HttpStatus.OK).json(user);
     }
 
     @ApiOperation({ title: 'Get an user by username', description: "Return a user by passing the username." })
     @Get('/username/:username')
-    public async getUserByUsername(@Response() res, @Param() param){
-        const user = await this.usersService.findByUsername(param.username);
+    public async getUserByUsername(@Response() res, @Param('username') username: string){
+        const user = await this.usersService.findByUsername(username);
         return res.status(HttpStatus.OK).json(user);
     }
 
@@ -41,17 +41,17 @@ export class UsersController {
 
     @ApiOperation({ title: 'Update an user passing his _id.', description: "Update an user passing a body with changs. Look for mongoose update." })
     @Patch('/:id')
-    public async updateUser(@Param() param, @Response() res, @Body() body) {
+    public async updateUser( @Param('id') id: String, @Response() res, @Body() body: CreateUserDto) {
 
-        const user = await this.usersService.update(param.id, body);
+        const user = await this.usersService.update(id, body);
         return res.status(HttpStatus.OK).json(user);
     }
 
     @ApiOperation({ title: 'Delete an user passing his _id.', description: "Delete an user passing his id." })
     @Delete('/:id')
-    public async deleteUser(@Param() param, @Response() res) {
+    public async deleteUser( @Param('id') id: String, @Response() res) {
 
-        const user = await this.usersService.delete(param.id);
+        const user = await this.usersService.delete(id);
         return res.status(HttpStatus.OK).json(user);
     }
 }

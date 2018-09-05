@@ -1,4 +1,5 @@
 import { ApiModelProperty } from "@nestjs/swagger";
+import { Schema } from "mongoose";
 
 export class CreateUserDto {
 
@@ -8,6 +9,6 @@ export class CreateUserDto {
     @ApiModelProperty()
     readonly name: string;
 
-    @ApiModelProperty({ type: String, isArray: true })
-    readonly notes: any[];
+    @ApiModelProperty({ type: Schema.Types.ObjectId, isArray: true })
+    readonly notes: Schema.Types.ObjectId[];
 }
