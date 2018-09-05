@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from 'users/interfaces/user.interface';
-import { Model } from 'mongoose';
+import { Model, Schema } from 'mongoose';
 import { Note } from './interfaces/note.interface';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UsersService } from 'users/users.service';
@@ -15,6 +15,10 @@ export class NotesService {
 
     async findAll(): Promise<Note[]> {
         return await this.noteModel.find().exec();
+    }
+
+    async findById(ID: Schema.Types.ObjectId): Promise<Note> {
+        return await this.noteModel.findById(ID).exec();
     }
 
     async create( createNoteDto: CreateNoteDto): Promise<Note> {
@@ -33,6 +37,27 @@ export class NotesService {
         return newNote;
 
 
+    }
+
+    async update(ID: Schema.Types.ObjectId, newValue: any): Promise<Note> {
+        const user = await this.noteModel.findById(ID).exec();
+
+        if (!user._id) {
+            debug('User not found');
+        }
+
+        await this.noteModel.findByIdAndUpdate(ID, newValue).exec();
+        return await this.noteModel.findById(ID).exec();
+    }
+    async delete(ID: Schema.Types.ObjectId): Promise<string> {
+        try {
+            await this.noteModel.findByIdAndRemove(ID).exec();
+            return 'The note has been deleted';
+        }
+        catch (err){
+            debug(err);
+            return 'The note could not be deleted';
+        }
     }
 
 }

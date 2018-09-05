@@ -15,13 +15,6 @@ export class UsersController {
         return res.status(HttpStatus.OK).json(users);
     }
 
-    @Get('find')
-    public async findUser(@Response() res, @Body() body) {
-        const queryCondition = body;
-        const users = await this.usersService.findOne(queryCondition);
-        return res.status(HttpStatus.OK).json(users);
-    }
-
     @Get('/:id')
     public async getUser(@Response() res, @Param() param){
         const user = await this.usersService.findById(param.id);
@@ -44,14 +37,14 @@ export class UsersController {
     }
 
     @Patch('/:id')
-    public async updateTodo(@Param() param, @Response() res, @Body() body) {
+    public async updateUser(@Param() param, @Response() res, @Body() body) {
 
         const todo = await this.usersService.update(param.id, body);
         return res.status(HttpStatus.OK).json(todo);
     }
 
     @Delete('/:id')
-    public async deleteTodo(@Param() param, @Response() res) {
+    public async deleteUser(@Param() param, @Response() res) {
 
         const todo = await this.usersService.delete(param.id);
         return res.status(HttpStatus.OK).json(todo);
