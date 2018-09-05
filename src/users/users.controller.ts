@@ -4,7 +4,7 @@ import { ApiResponse, ApiUseTags, ApiOperation, ApiImplicitBody } from '@nestjs/
 import { CreateUserDto } from './dto/create-user.dto';
 
 @ApiUseTags('users')
-@Controller('users')
+@Controller('api/v1/users')
 export class UsersController {
     constructor(private readonly usersService: UsersService){}
 
