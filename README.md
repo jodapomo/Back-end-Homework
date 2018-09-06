@@ -38,9 +38,8 @@ npm run start:prod
 ```
 
 ## Test
-
-Coverage results: ![alt text] (https://jodapomo.github.io/Back-end-Homework/)
 ![alt text](https://img00.deviantart.net/9bbd/i/2018/249/3/e/captura_by_jokerpiece-dcm6xnr.png)
+Coverage results: https://jodapomo.github.io/Back-end-Homework/
 
 ```bash
 # unit tests
