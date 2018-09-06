@@ -121,6 +121,7 @@ describe('Notes Controller', () => {
 
       const body = { 
         text: 'This is a mock note updated',
+        username: ''
       }
 
       const noteUpdated = { 
