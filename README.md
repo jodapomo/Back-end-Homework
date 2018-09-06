@@ -1,16 +1,8 @@
 # Back-end-Homework
 
-## Database
-
-Host: https://mlab.com/
-
-DB name: homeworkdb
-```
-mongodb://<dbuser>:<dbpassword>@ds133622.mlab.com:33622/homeworkdb
-```
 ## Master
 
-https://praxis-homework.herokuapp.com/api
+https://praxis-homework.herokuapp.com/
 
 ## Continuous Integration and Delivery
 
@@ -18,7 +10,7 @@ CircleCI: https://circleci.com/gh/jodapomo/Back-end-Homework
 
 ## Code documentation
 
-Swagger UI: http://localhost:3000/api/v1/docs/
+Swagger UI: https://praxis-homework.herokuapp.com/api/v1/docs/
 
 ## Description
 
@@ -47,6 +39,8 @@ npm run start:prod
 
 ## Test
 
+Coverage results: https://jodapomo.github.io/Back-end-Homework/
+
 ```bash
 # unit tests
 $ npm run test
@@ -57,6 +51,17 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+
+## Database
+
+Host: https://mlab.com/
+
+DB name: homeworkdb
+```
+mongodb://<dbuser>:<dbpassword>@ds133622.mlab.com:33622/homeworkdb
+```
+
 ## Authors
 
 * **Juan David Fernandez Moreno**
