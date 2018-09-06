@@ -35,7 +35,7 @@ describe('UsersService', () => {
 
       const result = ['test']
 
-      jest.spyOn(usersService, 'findAll').mockImplementation(() => result)
+      jest.spyOn(usersService, 'findAll').mockImplementation(() => Promise.resolve(result))
 
       expect(await usersService.findAll()).toBe(result)
     })
