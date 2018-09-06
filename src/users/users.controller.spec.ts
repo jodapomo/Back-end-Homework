@@ -68,16 +68,16 @@ describe('Users Controller', () => {
     it('should return an user specific by passing his id', async () => {
 
       const result = { 
-          _id: '1a', 
-          username: 'johndoe',
-          name: 'John Doe', 
-          notes: [{
-            _id: '2b',
-            text: "This is a mock",
-            createdAt: "5/09/18",
-            updatedAt: "5/09/18"
-          }]
-        }
+        _id: '1a', 
+        username: 'johndoe',
+        name: 'John Doe', 
+        notes: [{
+          _id: '2b',
+          text: "This is a mock",
+          createdAt: "5/09/18",
+          updatedAt: "5/09/18"
+        }]
+      }
 
       jest.spyOn(usersService, 'findById').mockImplementation(() => result)
 

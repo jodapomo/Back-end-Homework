@@ -14,13 +14,7 @@ export class UsersService {
     ) {}
 
     async findAll(): Promise<User[]> {
-
-
         return await this.userModel.find().populate('notes').exec();
-    }
-
-    async findOne(options: object): Promise<User> {
-        return await this.userModel.findOne(options).populate('notes').exec();
     }
 
     async findById(ID: String): Promise<User> {
