@@ -8,7 +8,7 @@ https://praxis-homework.herokuapp.com/
 
 ## Continuous Integration and Delivery
 
-CircleCI: https://circleci.com/gh/jodapomo/Back-end-Homework
+CircleCI: https://circleci.com/gh/jodapomo/Back-end-Homework/tree/master
 
 ## Code documentation
 
