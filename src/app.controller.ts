@@ -1,10 +1,10 @@
 import { Get, Controller, Response } from '@nestjs/common';
-import { AppService } from './app.service';
+import { ApiOperation } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
 
+  @ApiOperation({ title: 'Redirect the root route to de documentation.'})
   @Get()
   root(@Response() res): string {
     return res.redirect('/api/v1/docs');;

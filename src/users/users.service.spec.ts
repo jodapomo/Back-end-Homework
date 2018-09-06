@@ -12,6 +12,10 @@ describe('UsersService', () => {
           provide: getModelToken('User'),
           useValue: {} 
         },
+        {
+          provide: getModelToken('Note'),
+          useValue: {} 
+        },
       ],
     }).compile();
     service = module.get<UsersService>(UsersService);

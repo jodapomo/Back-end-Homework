@@ -4,7 +4,8 @@ import { User } from 'users/interfaces/user.interface';
 import { Model, Schema } from 'mongoose';
 import { Note } from './interfaces/note.interface';
 import { CreateNoteDto } from './dto/create-note.dto';
-import { UsersService } from 'users/users.service';
+import { UsersService } from '../users/users.service';
+import { debug } from 'console';
 
 @Injectable()
 export class NotesService {
