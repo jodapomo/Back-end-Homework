@@ -18,7 +18,7 @@ CircleCI: https://circleci.com/gh/jodapomo/Back-end-Homework
 
 ## Code documentation
 
-Swagger UI: http://localhost:3000/api/docs/
+Swagger UI: http://localhost:3000/api/v1/docs/
 
 ## Description
 
