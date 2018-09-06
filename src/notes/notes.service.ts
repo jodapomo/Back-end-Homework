@@ -18,7 +18,7 @@ export class NotesService {
         return await this.noteModel.find().exec();
     }
 
-    async findById(ID: Schema.Types.ObjectId): Promise<Note> {
+    async findById(ID: String): Promise<Note> {
         return await this.noteModel.findById(ID).exec();
     }
 
@@ -40,17 +40,17 @@ export class NotesService {
 
     }
 
-    async update(ID: Schema.Types.ObjectId, newValue: any): Promise<Note> {
+    async update(ID: String, newValue: any): Promise<Note> {
         const user = await this.noteModel.findById(ID).exec();
 
         if (!user._id) {
-            debug('User not found');
+            debug('Note not found');
         }
 
         await this.noteModel.findByIdAndUpdate(ID, newValue).exec();
         return await this.noteModel.findById(ID).exec();
     }
-    async delete(ID: Schema.Types.ObjectId): Promise<string> {
+    async delete(ID: String): Promise<string> {
         try {
             await this.noteModel.findByIdAndRemove(ID).exec();
             return 'The note has been deleted';
