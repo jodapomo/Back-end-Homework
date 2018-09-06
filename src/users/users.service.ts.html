@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.05% </span>
+        <span class="strong">68.42% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/19</span>
+        <span class='fraction'>13/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">60% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>6/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/18</span>
+        <span class='fraction'>12/18</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -114,27 +114,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -142,11 +138,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,24 +165,24 @@ export class UsersService {
         @InjectModel('Note') private readonly noteModel: Model<span class="branch-2 cbranch-no" title="branch not covered" >&lt;Note&gt;</span>
     ) {}
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >findAll</span>(): Promise&lt;User[]&gt; {
-<span class="cstat-no" title="statement not covered" >        return await this.userModel.find().populate('notes').exec();</span>
+    async findAll(): Promise&lt;User[]&gt; {
+        return await this.userModel.find().populate('notes').exec();
     }
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >findById</span>(ID: String): Promise&lt;User&gt; {
-<span class="cstat-no" title="statement not covered" >        return await this.userModel.findById(ID).populate('notes').exec();</span>
+    async findById(ID: String): Promise&lt;User&gt; {
+        return await this.userModel.findById(ID).populate('notes').exec();
     }
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >findByUsername</span>(username: string): Promise&lt;User&gt; {
-<span class="cstat-no" title="statement not covered" >        return await this.userModel.findOne({'username': username}).populate('notes');</span>
+    async findByUsername(username: string): Promise&lt;User&gt; {
+        return await this.userModel.findOne({'username': username}).populate('notes');
     }
-    async <span class="fstat-no" title="function not covered" >create</span>( createUserDto: CreateUserDto): Promise&lt;User&gt; {
-        const newUser = <span class="cstat-no" title="statement not covered" >new this.userModel(createUserDto);</span>
+    async create( createUserDto: CreateUserDto): Promise&lt;User&gt; {
+        const newUser = new this.userModel(createUserDto);
 <span class="cstat-no" title="statement not covered" >        return await newUser.save();</span>
     }
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >update</span>(ID: String, newValue: any): Promise&lt;User&gt; {
-        const user = <span class="cstat-no" title="statement not covered" >await this.userModel.findById(ID).exec();</span>
+    async update(ID: String, newValue: any): Promise&lt;User&gt; {
+        const user = await this.userModel.findById(ID).exec();
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        if (!user._id) {</span>
 <span class="cstat-no" title="statement not covered" >            debug('User not found');</span>
@@ -191,14 +191,14 @@ export class UsersService {
 <span class="cstat-no" title="statement not covered" >        await this.userModel.findByIdAndUpdate(ID, newValue).exec();</span>
 <span class="cstat-no" title="statement not covered" >        return await this.userModel.findById(ID).populate('notes').exec();</span>
     }
-    async <span class="fstat-no" title="function not covered" >delete</span>(ID: String): Promise&lt;string&gt; {
-<span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            await this.userModel.findByIdAndRemove(ID).exec();</span>
+    async delete(ID: String): Promise&lt;string&gt; {
+        try {
+            await this.userModel.findByIdAndRemove(ID).exec();
 <span class="cstat-no" title="statement not covered" >            return 'The user has been deleted';</span>
         }
         catch (err){
-<span class="cstat-no" title="statement not covered" >            debug(err);</span>
-<span class="cstat-no" title="statement not covered" >            return 'The user could not be deleted';</span>
+            debug(err);
+            return 'The user could not be deleted';
         }
     }
 }
@@ -208,7 +208,7 @@ export class UsersService {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 13:03:14 GMT-0500 (Hora est. Pacífico, Sudamérica)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 15:09:05 GMT-0500 (Hora est. Pacífico, Sudamérica)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

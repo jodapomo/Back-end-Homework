@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">17.39% </span>
+        <span class="strong">52.17% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/23</span>
+        <span class='fraction'>12/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">60% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>6/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/6</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">13.64% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/22</span>
+        <span class='fraction'>11/22</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -127,37 +127,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -165,11 +161,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,17 +190,17 @@ export class NotesService {
         private readonly usersService: UsersService<span class="branch-2 cbranch-no" title="branch not covered" ></span>
     ) {}
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >findAll</span>(): Promise&lt;Note[]&gt; {
-<span class="cstat-no" title="statement not covered" >        return await this.noteModel.find().exec();</span>
+    async findAll(): Promise&lt;Note[]&gt; {
+        return await this.noteModel.find().exec();
     }
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >findById</span>(ID: String): Promise&lt;Note&gt; {
-<span class="cstat-no" title="statement not covered" >        return await this.noteModel.findById(ID).exec();</span>
+    async findById(ID: String): Promise&lt;Note&gt; {
+        return await this.noteModel.findById(ID).exec();
     }
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >create</span>( createNoteDto: CreateNoteDto): Promise&lt;Note&gt; {
+    async create( createNoteDto: CreateNoteDto): Promise&lt;Note&gt; {
 &nbsp;
-        let newNote = <span class="cstat-no" title="statement not covered" >new this.noteModel(createNoteDto);</span>
+        let newNote = new this.noteModel(createNoteDto);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        newNote = await newNote.save();</span>
 &nbsp;
@@ -216,8 +216,8 @@ export class NotesService {
 &nbsp;
     }
 &nbsp;
-    async <span class="fstat-no" title="function not covered" >update</span>(ID: String, newValue: any): Promise&lt;Note&gt; {
-        const user = <span class="cstat-no" title="statement not covered" >await this.noteModel.findById(ID).exec();</span>
+    async update(ID: String, newValue: any): Promise&lt;Note&gt; {
+        const user = await this.noteModel.findById(ID).exec();
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        if (!user._id) {</span>
 <span class="cstat-no" title="statement not covered" >            debug('Note not found');</span>
@@ -226,14 +226,14 @@ export class NotesService {
 <span class="cstat-no" title="statement not covered" >        await this.noteModel.findByIdAndUpdate(ID, newValue).exec();</span>
 <span class="cstat-no" title="statement not covered" >        return await this.noteModel.findById(ID).exec();</span>
     }
-    async <span class="fstat-no" title="function not covered" >delete</span>(ID: String): Promise&lt;string&gt; {
-<span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            await this.noteModel.findByIdAndRemove(ID).exec();</span>
+    async delete(ID: String): Promise&lt;string&gt; {
+        try {
+            await this.noteModel.findByIdAndRemove(ID).exec();
 <span class="cstat-no" title="statement not covered" >            return 'The note has been deleted';</span>
         }
         catch (err){
-<span class="cstat-no" title="statement not covered" >            debug(err);</span>
-<span class="cstat-no" title="statement not covered" >            return 'The note could not be deleted';</span>
+            debug(err);
+            return 'The note could not be deleted';
         }
     }
 &nbsp;
@@ -244,7 +244,7 @@ export class NotesService {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 13:03:14 GMT-0500 (Hora est. Pacífico, Sudamérica)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 06 2018 15:09:05 GMT-0500 (Hora est. Pacífico, Sudamérica)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
