@@ -37,7 +37,7 @@ describe('Users Controller', () => {
       status: function(responseStatus) {
           return this; 
       }
-  }
+    }
   });
 
   it('should be defined', () => {
