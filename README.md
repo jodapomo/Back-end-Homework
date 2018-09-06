@@ -40,6 +40,7 @@ npm run start:prod
 ## Test
 
 Coverage results: https://jodapomo.github.io/Back-end-Homework/
+![alt text](http://url/to/img.png)
 
 ```bash
 # unit tests
