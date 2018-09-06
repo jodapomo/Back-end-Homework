@@ -47,11 +47,11 @@ describe('NotesService', () => {
 
     it('should return all the notes', async () => {
 
-      const result = ['test']
+      const spy = jest.spyOn(notesService, 'findAll', 'get')
+      notesService.findAll();
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
 
-      jest.spyOn(notesService, 'findAll').mockImplementation(() => result)
-
-      expect(await notesService.findAll()).toBe(result)
     })
 
   })
@@ -60,16 +60,11 @@ describe('NotesService', () => {
 
     it('should return a single note by passing it id', async () => {
 
-      const result = { 
-        _id: '2b',
-        text: "This is a mock",
-        createdAt: "5/09/18",
-        updatedAt: "5/09/18"
-    }
+      const spy = jest.spyOn(notesService, 'findById', 'set')
+      notesService.findById('2b');
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
 
-      jest.spyOn(notesService, 'findById').mockImplementation(() => result)
-
-      expect(await notesService.findById('2b')).toBe(result)
     })
 
   })
@@ -83,16 +78,11 @@ describe('NotesService', () => {
         username: 'johndoe'
       }
 
-      const newNote = { 
-        _id: '2b',
-        text: 'This is a mock note',
-        createdAt: '5/09/18',
-        updatedAt: '5/09/18'
-      }
+      const spy = jest.spyOn(notesService, 'create', 'set')
+      notesService.create(newNoteDto);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
 
-      jest.spyOn(notesService, 'create').mockImplementation(() => newNote)
-
-      expect(await notesService.create(newNoteDto)).toBe(newNote)
     })
 
   })
@@ -101,27 +91,14 @@ describe('NotesService', () => {
 
     it('should update a note by passing the id and the body of the update, return the note created', async () => {
 
-      const note = { 
-        _id: '2b',
-        text: 'This is a mock note',
-        createdAt: '5/09/18',
-        updatedAt: '5/09/18'
-      }
-
       const body = { 
         text: 'This is a mock note updated',
       }
 
-      const noteUpdated = { 
-        _id: '2b',
-        text: 'This is a mock note updated',
-        createdAt: '5/09/18',
-        updatedAt: '6/09/18'
-      }
-
-      jest.spyOn(notesService, 'update').mockImplementation(() => noteUpdated)
-
-      expect(await notesService.update('2b',body)).toBe(noteUpdated)
+      const spy = jest.spyOn(notesService, 'update', 'set')
+      notesService.update('2b',body);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
     })
 
   })
@@ -130,16 +107,11 @@ describe('NotesService', () => {
 
     it('should delete an existing note and return a message', async () => {
 
-      const note = { 
-        _id: '2b',
-        text: 'This is a mock note',
-        createdAt: '5/09/18',
-        updatedAt: '5/09/18'
-      }
-
-      jest.spyOn(notesService, 'delete').mockImplementation(() => 'The note has been deleted')
-
-      expect(await notesService.delete('2b')).toBe('The note has been deleted')
+      const spy = jest.spyOn(notesService, 'delete', 'set')
+      notesService.delete('2b');
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+      
     })
 
   })

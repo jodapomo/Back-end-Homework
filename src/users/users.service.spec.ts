@@ -7,7 +7,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 
 describe('UsersService', () => {
   let usersService: UsersService;
-  let userModel: Model<User>;
+  // let userModel: Model<User>;
+  let userModel;
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -24,6 +25,19 @@ describe('UsersService', () => {
       ],
     }).compile();
     usersService = module.get<UsersService>(UsersService);
+
+
+    // userModel = {
+    //   find: function () {
+    //     return this;
+    //   },
+    //   populate: function () {
+    //     return this;
+    //   },
+    //   exec: function() {
+    //     return this;
+    //   }
+    // }
   });
   it('should be defined', () => {
     expect(usersService).toBeDefined();
@@ -35,9 +49,14 @@ describe('UsersService', () => {
 
       const result = ['test']
 
-      jest.spyOn(usersService, 'findAll').mockImplementation(() => Promise.resolve(result))
+      const spy = jest.spyOn(usersService, 'findAll', 'get')
 
-      expect(await usersService.findAll()).toBe(result)
+      usersService.findAll();
+
+      expect(spy).toHaveBeenCalled();
+
+      spy.mockRestore();
+
     })
 
   })
@@ -46,40 +65,25 @@ describe('UsersService', () => {
 
     it('should return a single user by passing his id', async () => {
 
-      const result = { 
-        _id: '1a', 
-        username: 'johndoe',
-        name: 'John Doe', 
-        notes: [{
-          _id: '2b',
-          text: "This is a mock",
-          createdAt: "5/09/18",
-          updatedAt: "5/09/18"
-        }]
-      }
+      const spy = jest.spyOn(usersService, 'findById', 'set')
 
-      jest.spyOn(usersService, 'findById').mockImplementation(() => result)
+      usersService.findById('1a');
 
-      expect(await usersService.findById('1a')).toBe(result)
+      expect(spy).toHaveBeenCalled();
+
+      spy.mockRestore();
+      
     })
 
     it('should return a single user by passing his username', async () => {
 
-      const result = { 
-        _id: '1a', 
-        username: 'johndoe',
-        name: 'John Doe', 
-        notes: [{
-          _id: '2b',
-          text: "This is a mock",
-          createdAt: "5/09/18",
-          updatedAt: "5/09/18"
-        }]
-      }
+      const spy = jest.spyOn(usersService, 'findByUsername', 'set')
 
-      jest.spyOn(usersService, 'findByUsername').mockImplementation(() => result)
+      usersService.findByUsername('johndoe');
 
-      expect(await usersService.findByUsername('johndoe')).toBe(result)
+      expect(spy).toHaveBeenCalled();
+
+      spy.mockRestore();
     })
 
   })
@@ -95,9 +99,13 @@ describe('UsersService', () => {
         notes: []
       }
 
-      jest.spyOn(usersService, 'create').mockImplementation(() => newUser)
+      const spy = jest.spyOn(usersService, 'create', 'set')
 
-      expect(await usersService.create(newUser)).toBe(newUser)
+      usersService.create(newUser);
+
+      expect(spy).toHaveBeenCalled();
+
+      spy.mockRestore();
     })
 
   })
@@ -106,29 +114,19 @@ describe('UsersService', () => {
 
     it('should update an existing user and return the updated user', async () => {
 
-      const user = { 
-        _id: '4b', 
-        username: 'johndoe',
-        name: 'John Doe', 
-        notes: []
-      }
-
       const body: CreateUserDto = { 
         username: 'johndoe3',
         name: 'John Doe III',
         notes: []
       }
 
-      const result = { 
-          _id: '4b', 
-          username: 'johndoe3',
-          name: 'John Doe III', 
-          notes: []
-        }
+      const spy = jest.spyOn(usersService, 'update', 'set')
 
-      jest.spyOn(usersService, 'update').mockImplementation(() => result)
+      usersService.update('4b', body);
 
-      expect(await usersService.update('4b',body)).toBe(result)
+      expect(spy).toHaveBeenCalled();
+
+      spy.mockRestore();
     })
 
   })
@@ -137,9 +135,13 @@ describe('UsersService', () => {
 
     it('should delete an existing user and return a message', async () => {
 
-      jest.spyOn(usersService, 'delete').mockImplementation(() => 'The user has been deleted')
+      const spy = jest.spyOn(usersService, 'delete', 'set')
 
-      expect(await usersService.delete('3a')).toBe('The user has been deleted')
+      usersService.delete('4b');
+
+      expect(spy).toHaveBeenCalled();
+
+      spy.mockRestore();
     })
 
   })
